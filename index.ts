@@ -100,7 +100,9 @@ export function computed<T>(fn: () => T): Konbini<T> {
 
   function compute() {
     if (computationStack.includes(compute)) {
-      throw new Error("Circular computation");
+      throw new Error(
+        "Circular computation in computed(): a store's value cannot rely on itself",
+      );
     }
     computationStack.push(compute);
 
