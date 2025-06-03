@@ -24,10 +24,10 @@ export type Unsubscriber = () => void;
 export interface Konbini<T> {
   /** Get the value of the store */
   (): T;
-  /** Set the value of the store */
-  (newValue: T): T;
-  /** Set the value of the store */
-  set(newValue: T): T;
+  /** Set the value of the store, optionally force-run subscribers even if the value didn't change */
+  (newValue: T, force?: boolean): T;
+  /** Set the value of the store, optionally force-run subscribers even if the value didn't change */
+  set(newValue: T, force?: boolean): T;
   /**
    * Listen for changes to the store's value.
    * @param subscriber called when the store's value changes
@@ -68,7 +68,8 @@ export function konbini<T>(value?: T): Konbini<T> {
 
     const oldValue = value;
     value = args[0] as T;
-    if (value === oldValue) return;
+    const force = args[1] as boolean;
+    if (value === oldValue && !force) return;
     for (const subscriber of subscribers) {
       subscriber(value, oldValue);
     }
