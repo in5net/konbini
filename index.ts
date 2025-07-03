@@ -85,8 +85,16 @@ export function konbini<T>(value?: T): Konbini<T> {
  */
 export function computed<T>(fn: () => T): Konbini<T> {
   const store = konbini();
-  // @ts-expect-error
-  store.trkl = trkl.computed(fn);
+  try {
+    // @ts-expect-error
+    store.trkl = trkl.computed(fn);
+  } catch (e) {
+    if (e instanceof Error && e.message === "Circular computation") {
+      throw new Error(
+        "Circular computation in computed(): a store's value cannot rely on itself",
+      );
+    }
+  }
   // @ts-expect-error
   return store;
 }
