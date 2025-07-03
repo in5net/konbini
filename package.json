@@ -29,9 +29,13 @@
     "release": "bumpp && pnpm publish",
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "trkl": "^2.0.1"
+  },
   "devDependencies": {
     "@in5net/prettier-config": "^1.4.3",
     "bumpp": "^9.8.1",
+    "prettier-plugin-svelte": "^3.4.0",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3"
   }

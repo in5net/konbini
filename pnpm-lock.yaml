@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      trkl:
+        specifier: ^2.0.1
+        version: 2.0.1
     devDependencies:
       '@in5net/prettier-config':
         specifier: ^1.4.3
@@ -14,6 +18,9 @@ importers:
       bumpp:
         specifier: ^9.8.1
         version: 9.11.1
+      prettier-plugin-svelte:
+        specifier: ^3.4.0
+        version: 3.4.0(prettier@3.6.2)(svelte@5.35.2)
       tsup:
         specifier: ^8.3.5
         version: 8.5.0(jiti@2.4.2)(typescript@5.8.3)
@@ -758,6 +765,9 @@ packages:
     resolution: {integrity: sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==}
     hasBin: true
 
+  trkl@2.0.1:
+    resolution: {integrity: sha512-OCS+5Jh+swPzFA/2bzC9vL6lqu9cFXWAHZCu9JHA1VpCtvsTmC0beGprFEtpWJPjCCu+IcdqJ9pDgym34pzDwg==}
+
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
 
@@ -1452,6 +1462,8 @@ snapshots:
       punycode: 2.3.1
 
   tree-kill@1.2.2: {}
+
+  trkl@2.0.1: {}
 
   ts-interface-checker@0.1.13: {}
 
