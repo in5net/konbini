@@ -2,7 +2,7 @@ import trkl from "trkl";
 /**
  * @module konbini
  * A simple single-like reactive store that can be used in Svelte
- * This is mainly the observables in [trkl](https://github.com/jbreckmckye/trkl) with the Svelte store contract and a few new functions
+ * This is mainly the observables in [trkl](https://github.com/jbreckmckye/trkl) with the Svelte store contract
  *
  * @example
  * ```ts
@@ -27,9 +27,15 @@ export interface Konbini<T> {
   trkl: trkl.Observable<T>;
   /** Get the value of the store */
   (): T;
-  /** Set the value of the store */
+  /**
+   * Set the value of the store
+   * @returns the new value of the store, `newValue`
+   */
   (newValue: T): T;
-  /** Set the value of the store */
+  /**
+   * Set the value of the store
+   * @returns the new value of the store, `newValue`
+   */
   set(newValue: T): T;
   /**
    * Listen for changes to the store's value.
